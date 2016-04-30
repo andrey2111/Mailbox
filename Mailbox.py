@@ -1,5 +1,5 @@
 inputfilename = 'unix.mailbox'
-openedfiles = dict() #словарь открытых файлов {email: объект файла с этим email}
+openedfiles = {} #словарь открытых файлов {email: объект файла с этим email}
 
 inf = open(inputfilename, 'r')
 openedfiles[inputfilename] = inf #открытие входного файла на чтение и добавление его в словарь
