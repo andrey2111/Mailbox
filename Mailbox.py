@@ -9,7 +9,7 @@ for line in inf:
         email = line.split()[1] #email отправителя
         if email not in openedfiles:#если файл с именем email не открыт, его необходимо открыть
             ouf = open(email, 'w')
-            openedfiles[email] = ouf
+            openedfiles[email] = ouf #добавляем открытый файл в словарь
 
     openedfiles[email].write(line) #запись строки в соответствующий файл
 
