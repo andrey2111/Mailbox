@@ -11,7 +11,7 @@ for line in inf:
             ouf = open(email, 'w')
             openedfiles[email] = ouf
 
-    openedfiles.get(email).write(line) #запись строки в соответствующий файл
+    openedfiles[email].write(line) #запись строки в соответствующий файл
 
 for file in openedfiles.values():
     file.close() #закрытие всех открытых файлов
