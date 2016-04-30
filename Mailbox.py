@@ -1,17 +1,17 @@
 inputfilename = 'unix.mailbox'
-openedfiles = {} #словарь открытых файлов {email: объект файла с этим email}
+opened_files = {} #словарь открытых файлов {email: объект файла с этим email}
 
 inf = open(inputfilename, 'r')
-openedfiles[inputfilename] = inf #открытие входного файла на чтение и добавление его в словарь
+opened_files[inputfilename] = inf #открытие входного файла на чтение и добавление его в словарь
 
 for line in inf:
     if line.startswith("From "): #Если строка начинается с From
-        email = line.split()[1] #email отправителя
-        if email not in openedfiles: #если файл с именем email не открыт, его необходимо открыть
+        email = line.split(maxsplit=2)[1] #email отправителя
+        if email not in opened_files: #если файл с именем email не открыт, его необходимо открыть
             ouf = open(email, 'w')
-            openedfiles[email] = ouf #добавляем открытый файл в словарь
+            opened_files[email] = ouf #добавляем открытый файл в словарь
 
-    openedfiles[email].write(line) #запись строки в соответствующий файл
+    opened_files[email].write(line) #запись строки в соответствующий файл
 
-for file in openedfiles.values():
+for file in opened_files.values():
     file.close() #закрытие всех открытых файлов
