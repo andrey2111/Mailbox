@@ -1,8 +1,8 @@
-inputfilename = 'unix.mailbox'
+input_file_name = 'unix.mailbox'
 opened_files = {} #словарь открытых файлов {email: объект файла с этим email}
 
-inf = open(inputfilename, 'r')
-opened_files[inputfilename] = inf #открытие входного файла на чтение и добавление его в словарь
+inf = open(input_file_name, 'r')
+opened_files[input_file_name] = inf #открытие входного файла на чтение и добавление его в словарь
 
 for line in inf:
     if line.startswith("From "): #Если строка начинается с From
